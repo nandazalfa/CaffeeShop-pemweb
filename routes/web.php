@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\KarirController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controllers\ProductController;
-
+// Halaman utama (home)
 Route::get('/', [ProductController::class, 'index']);
 
+// Halaman Karir
+Route::get('/karir', [KarirController::class, 'index']);

@@ -419,7 +419,7 @@
                 <a href="#kolaborasi">Kolaborasi</a>
                 <a href="#store">Store</a>
                 <a href="#news">News</a>
-                <a href="#karir">Karir</a>
+                <a href="{{ url('/karir') }}">Karir</a>
                 <a href="#hubungi">Hubungi Kami</a>
                 <div class="language-selector">
                     <span>🇮🇩</span>
@@ -462,8 +462,317 @@
             </div>
         </div>
     </section>
+  
+<style>
 
-    <section class="locations">
+.testimonials {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--bg-light) 0%, #fff 100%);
+}
+
+.testimonials-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 120px;
+    color: rgba(0, 98, 65, 0.1);
+    font-family: serif;
+    line-height: 1;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0,98,65,0.2);
+}
+
+.testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-info {
+    flex: 1;
+}
+
+.testimonial-info h4 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+}
+
+.testimonial-info .customer-type {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.customer-type i {
+    color: var(--primary-color);
+}
+
+.testimonial-text {
+    color: var(--text-gray);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.testimonial-rating {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.testimonial-rating i {
+    color: #FFD700;
+    font-size: 1.2rem;
+}
+
+.testimonial-date {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+.verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.8rem;
+    background-color: rgba(0, 98, 65, 0.1);
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.verified-badge i {
+    font-size: 0.8rem;
+}
+</style>
+
+<section class="testimonials">
+    <div class="section-title">
+        <h2>What Our Customers Say</h2>
+        <p>Pengalaman autentik dari pelanggan setia kami</p>
+    </div>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <div class="testimonial-avatar">
+                    <img src="https://i.pinimg.com/736x/a5/ee/ab/a5eeabe069c8c208f8982394e267e78a.jpg" alt="Sarah Wijaya">
+                </div>
+                <div class="testimonial-info">
+                    <h4>Uni Bakwan</h4>
+                    <div class="customer-type">
+                        <i class="fas fa-award"></i>
+                        <span>Member Gold</span>
+                    </div>
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Verified Purchase</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-text">
+                "Kopi ini tuh kayak bakwan, enak, nggak perlu mikir panjang! Begitu nyeruput, langsung berasa di surga dunia. Kalau hidup lagi nggak enak, tinggal ngopi, semua masalah hilang."
+            </div>
+            <div class="testimonial-footer">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-date">December 2024</div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <div class="testimonial-avatar">
+                    <img src="https://i.pinimg.com/736x/2c/b6/21/2cb621dc23d3613ece340e6dede7d2f8.jpg" alt="Budi Santoso">
+                </div>
+                <div class="testimonial-info">
+                    <h4>Kak Gem</h4>
+                    <div class="customer-type">
+                        <i class="fas fa-gem"></i>
+                        <span>Member Platinum</span>
+                    </div>
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Verified Purchase</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-text">
+                " Kehidupan itu seperti secangkir kopi. Kadang pahit, kadang manis, tapi selalu ada rasa yang bikin kita terus ngelangkah. Kopi ini ngingetin aku, meski hari-hari gak selalu mulus, tapi dengan sedikit semangat, semuanya bisa jadi lebih indah. PAHAM!!!"
+            </div>
+            <div class="testimonial-footer">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-date">December 2024</div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <div class="testimonial-avatar">
+                    <img src="https://i.pinimg.com/736x/a2/2a/63/a22a631e4bde880809396334f5a7f30d.jpg" alt="Linda Kusuma">
+                </div>
+                <div class="testimonial-info">
+                    <h4>Fajar Sadboy</h4>
+                    <div class="customer-type">
+                        <i class="fas fa-crown"></i>
+                        <span>Coffee Enthusiast</span>
+                    </div>
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Verified Purchase</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-text">
+                "Hidup tuh kayak kopi, kadang pahit, kadang manis. Tapi jangan khawatir, kalau kopi aja bisa bikin kita melek, hidup juga pasti bisa bikin kita kuat! Kalau rasa hidup lagi pahit, inget aja, ada gula di kopi."
+            </div>
+            <div class="testimonial-footer">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="testimonial-date">Agustus 2024</div>
+            </div>
+        </div>
+    </div>
+</section>
+    <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Promo di Hanilla Coffee
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+        }
+  </style>
+ </head>
+ <body class="bg-[#F5F5F5]">
+  <div class="max-w-screen-xl mx-auto p-4">
+   <div class="text-center py-8">
+    <h1 class="text-4xl font-bold text-[#1A3B34]">
+     Promo di Hanilla Coffee
+    </h1>
+    <p class="text-lg text-[#A3A3A3] mt-2">
+     Temukan berbagai promo menarik di sini!
+    </p>
+   </div>
+   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-2xl font-bold text-[#1A3B34]">
+      Disc.
+      <span class="text-4xl">
+       30%
+      </span>
+     </h2>
+     <p class="text-lg text-[#1A3B34] mt-2">
+      Treats Foreveryday
+     </p>
+     <img alt="Iced coffee and croissant" class="mx-auto mt-4" height="200" src="https://i.pinimg.com/736x/0e/3a/73/0e3a73816deb0e0d409e83dd959d94c0.jpg" width="200"/>
+     <p class="text-sm text-[#A3A3A3] mt-2">
+      T&amp;C Applied | Limited Quota
+     </p>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-2xl font-bold text-[#1A3B34]">
+      Saturday
+     </h2>
+     <p class="text-4xl font-bold text-[#1A3B34] mt-2">
+      Free Upsize
+     </p>
+     <img alt="Iced coffee" class="mx-auto mt-4" height="200" src="https://i.pinimg.com/736x/ea/35/65/ea356543fb42b9bef9771a8e70dcf47e.jpg" width="200"/>
+     <p class="text-sm text-[#A3A3A3] mt-2">
+      T&amp;C Applied | Limited Quota
+     </p>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+     <h2 class="text-2xl font-bold text-[#1A3B34]">
+      Disc.
+      <span class="text-4xl">
+       35%
+      </span>
+     </h2>
+     <p class="text-lg text-[#1A3B34] mt-2">
+      Euforia Festive Deals
+     </p>
+     <img alt="Various coffee drinks and sandwiches" class="mx-auto mt-4" height="200" src="https://i.pinimg.com/736x/05/b3/56/05b3564a22901a72f52534a3dbd7b4d5.jpg" width="200"/>
+     <p class="text-sm text-[#A3A3A3] mt-2">
+      T&amp;C Applied | Limited Quota
+     </p>
+    </div>
+   </div>
+  </div>
+  <section class="locations">
         <div class="section-title">
             <h2>Our Locations</h2>
             <p>Temukan gerai kami di berbagai lokasi</p>
@@ -472,17 +781,3 @@
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126646.51380936121!2d112.71268687362064!3d-7.275619143075757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf8381ac47f%3A0x3027a76e352be40!2sSurabaya%2C%20Surabaya%20City%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1703317234676!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
-
-    <section class="testimonials">
-        <div class="section-title">
-            <h2>What Our Customers Say</h2>
-            <p>Pengalaman pelanggan bersama kami</p>
-        </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">
-                        <img src="/api/placeholder/60/60" alt="Customer">
-                    </div>
-                    <div class="testimonial-info">
-                        <h4>Sarah Wijaya</h4>
