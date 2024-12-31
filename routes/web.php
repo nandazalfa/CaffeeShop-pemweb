@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KarirController;
+use App\Http\Controllers\NewPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,6 @@ Route::get('/', [ProductController::class, 'index']);
 
 // Halaman Karir
 Route::get('/karir', [KarirController::class, 'index']);
+
+// halaman product
+Route::get('/product', [NewPageController::class, 'index'])->name('newpage.index');
