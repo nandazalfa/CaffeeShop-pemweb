@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KarirController;
 use App\Http\Controllers\NewPageController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,7 @@ Route::get('/karir', [KarirController::class, 'index']);
 
 // halaman product
 Route::get('/product', [NewPageController::class, 'index'])->name('newpage.index');
+
+// Halaman cart
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
+

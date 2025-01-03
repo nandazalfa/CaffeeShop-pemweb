@@ -415,7 +415,7 @@
             <img src="/api/placeholder/120/40" alt="Logo" class="logo">
             <div class="nav-links">
                 <a href="#tentang">Tentang</a>
-                <a href="#menu">Menu</a>
+                <a href="{{ url('/product') }}">Menu</a>
                 <a href="#kolaborasi">Kolaborasi</a>
                 <a href="#store">Store</a>
                 <a href="#news">News</a>

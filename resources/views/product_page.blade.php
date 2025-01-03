@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-/* Navbar */
-.navbar {
+            font-family: 'Inter', sans-serif; /* Font modern sans-serif */
+            background-color: #fafafa;
+            padding-top: 80px;
+        }
+        /* Navbar */
+        .navbar {
             background-color: white;
             padding: 1rem 0;
             position: fixed;
@@ -51,113 +55,90 @@
             margin-left: 1rem;
         }
 
-        .download-btn {
-            background-color: white;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .download-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
         /* Category Title */
         .category-title {
             text-align: center;
             font-size: 1.5em;
             color: #2e7d32; /* Dark Green */
-            margin: 100px 0 10px;
+            margin: 10px 0 10px;
             font-weight: bold;
         }
 
-        /* Container and Products */
+        /* Container untuk list produk */
         .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            display: grid; /* Menggunakan grid untuk penataan produk */
+            grid-template-columns: repeat(3, 1fr); /* Menampilkan 3 kolom */
+            gap: 20px; /* Jarak antar item produk */
             padding: 20px;
         }
 
+        /* Responsif untuk perangkat kecil */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr); /* 2 kolom pada layar menengah */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr; /* 1 kolom pada perangkat kecil */
+            }
+        }
+
+        /* Card Produk Horizontal */
         .product {
-            background-color: #e8f5e9; /* Light Green Background */
-            padding: 20px;
-            margin: 15px;
-            border-radius: 10px;
-            width: 220px;
-            text-align: center;
+            display: flex; /* Atur card dalam bentuk horizontal */
+            align-items: center;
+            background-color: white;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
+            padding: 15px;
+            border-radius: 10px;
+            gap: 15px; /* Jarak antara elemen gambar dan informasi */
         }
 
+        /* Gambar produk */
         .product img {
-            width: 100%;
-            height: auto;
+            width: 80px; /* Ukuran gambar lebih kecil */
+            height: 80px;
+            object-fit: cover; /* Menyesuaikan gambar */
             border-radius: 10px;
-            margin-bottom: 10px;
+        }
+
+        /* Info produk */
+        .product-info {
+            flex-grow: 1; /* Biarkan info mengambil ruang tersisa */
         }
 
         .product h3 {
-            font-size: 1.2em;
-            color: #388e3c;
-        }
-
-        .product p {
-            color: #424242;
-            margin-bottom: 10px;
-            font-size: 0.9em;
+            font-size: 1rem; /* Ukuran font lebih kecil */
+            color: #333;
+            margin: 0 0 5px;
         }
 
         .product .price {
-            font-size: 1.3em;
-            color: #388e3c;
+            font-size: 1.1rem; /* Ukuran harga sedikit lebih besar */
             font-weight: bold;
+            color: #388e3c;
+            margin: 5px 0;
         }
 
-        .product .discount {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #388e3c;
-            color: white;
-            padding: 5px 10px;
-            font-size: 0.9em;
-            border-radius: 5px;
-        }
-
-        /* Quantity Controls */
-        .quantity-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .product .btn-buy {
+            align-self: flex-end;
             margin-top: 10px;
+            background-color: #25d366; /* Hijau ala WhatsApp */
         }
 
-        .quantity-controls button {
-            background-color: #388e3c;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            font-size: 1.2em;
-            cursor: pointer;
-            border-radius: 5px;
-            width: 30px;
-            height: 30px;
-        }
+        /* Responsif untuk perangkat kecil */
+        @media (max-width: 768px) {
+            .product {
+                flex-direction: column; /* Produk vertikal */
+                align-items: center;
+            }
 
-        .quantity-controls input {
-            width: 40px;
-            text-align: center;
-            margin: 0 10px;
-            font-size: 1.2em;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            .product img {
+                width: 100px;
+                height: 100px;
+            }
         }
 
         /* Add to Cart Button */
@@ -165,9 +146,9 @@
             background-color: #388e3c;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 7px 10px;
             font-size: 1em;
-            border-radius: 5px;
+            border-radius: 20px;
             cursor: pointer;
             transition: background-color 0.3s;
             margin-top: 15px;
@@ -219,27 +200,44 @@
                 font-size: 1.4em;
             }
         }
+
+        #toast {
+            position: fixed;
+            top: 50%; /* Menempatkan toast di tengah layar secara vertikal */
+            left: 50%; /* Menempatkan toast di tengah layar secara horizontal */
+            transform: translate(-50%, -50%); /* Menyesuaikan posisi agar tepat di tengah */
+            background-color: #388e3c; /* Warna latar belakang hijau */
+            color: white; /* Warna teks putih */
+            padding: 15px 30px; /* Ukuran padding agar lebih terlihat jelas */
+            border-radius: 8px; /* Sudut melengkung */
+            display: none; /* Awalnya disembunyikan */
+            z-index: 1000;
+            font-size: 18px; /* Ukuran font lebih besar */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Efek bayangan */
+            font-weight: bold; /* Teks tebal */
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-content">
-            <img src="/api/placeholder/120/40" alt="Nanya & Co." class="logo">
+            <img src="/api/placeholder/120/40" alt="Logo" class="logo">
             <div class="nav-links">
-                <a href="#tentang">Tentang</a>
-                <a href="#menu">Menu</a>
+                <a href="{{ url('/') }}">Tentang</a>
+                <a href="{{ url('/product') }}">Menu</a>
                 <a href="#kolaborasi">Kolaborasi</a>
                 <a href="#store">Store</a>
                 <a href="#news">News</a>
-                <a href="#karir">Karir</a>
+                <a href="{{ url('/karir') }}">Karir</a>
                 <a href="#hubungi">Hubungi Kami</a>
                 <div class="language-selector">
                     <span>🇮🇩</span>
                     <span>ID</span>
                 </div>
-                <a href="#download" class="download-btn">Download App</a>
-                <a href="#cart" class="cart-icon">
+                <!-- Ikon keranjang di navbar -->
+                <a href="{{ route('cart') }}" class="cart-icon">
                     <i class="fas fa-shopping-cart"></i> <!-- Ikon Keranjang -->
+                    <span id="cart-count" class="cart-count">0</span> <!-- Menampilkan jumlah produk di keranjang -->
                 </a>
             </div>
         </div>
@@ -251,53 +249,76 @@
         <div class="container">
             @foreach ($products as $product)
                 @if ($product->category == $category)
-                    <div class="product">
-                        <img src="{{ $product->image_url }}" alt="Product Image">
+                <div class="product">
+                    <img src="{{ $product->image_url }}" alt="Product Image">
+                    <div class="product-info">
                         <h3>{{ $product->name }}</h3>
                         <p>{{ $product->description }}</p>
                         <p class="price">Rp {{ number_format($product->price, 2) }}</p>
-
-                        <!-- Quantity Controls -->
-                        <div class="quantity-controls">
-                            <button onclick="changeQuantity('decrease', '{{ $product->id }}')">-</button>
-                            <input type="text" id="quantity-{{ $product->id }}" value="0" readonly>
-                            <button onclick="changeQuantity('increase', '{{ $product->id }}')">+</button>
-                        </div>
-
-                        <!-- Add to Cart Button -->
-                        <button class="btn-buy">Tambah</button>
                     </div>
+                    <!-- Tombol beli -->
+                    <button class="btn-buy" onclick="addToCart('{{ $product->id }}', '{{ $product->name }}', {{ $product->price }}, 1)">+</button>
+                </div>
                 @endif
             @endforeach
         </div>
     @endforeach
 
-    <div class="footer">
-        <p>&copy; 2024 Hanila Brew | All Rights Reserved</p>
-    </div>
-
-    <div class="whatsapp-chat">
-        <a href="https://wa.me/6287782665046" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
+    <!-- Toast Notification -->
+    <div id="toast">
+        Produk berhasil ditambahkan ke keranjang!
     </div>
 
     <!-- JavaScript -->
     <script>
-        function changeQuantity(action, productId) {
-            const quantityInput = document.getElementById('quantity-' + productId);
-            let currentQuantity = parseInt(quantityInput.value);
-
-            // Increase or decrease based on action
-            if (action === 'increase') {
-                currentQuantity++;
-            } else if (action === 'decrease' && currentQuantity > 0) {
-                currentQuantity--;
+        // Fungsi untuk menambah produk ke keranjang
+        function addToCart(productId, productName, productPrice, quantity) {
+            if (quantity <= 0) {
+                alert('Pilih jumlah produk yang valid.');
+                return;
             }
 
-            // Set the updated quantity in the input field
-            quantityInput.value = currentQuantity;
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            const existingProduct = cart.find(item => item.productId === productId);
+
+            if (existingProduct) {
+                existingProduct.quantity += quantity;
+            } else {
+                cart.push({
+                    productId,
+                    productName,
+                    productPrice,
+                    quantity
+                });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            showToast();
         }
+
+        // Fungsi untuk menampilkan toast
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.style.display = 'block'; // Tampilkan toast
+
+            // Sembunyikan toast setelah 3 detik
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+
+        // Update jumlah produk di ikon keranjang
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = cartCount;
+        }
+
+        // Memanggil updateCartCount saat halaman dimuat
+        window.onload = updateCartCount;
+
     </script>
 </body>
 </html>
