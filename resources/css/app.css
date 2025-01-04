@@ -235,4 +235,147 @@
   .rounded-full {
     border-radius: 9999px;
   }
+ /* Global styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --fore-green: #006241;
+  --fore-green-light: #008556;
+  --fore-gray: #4A4A4A;
+  --fore-light-gray: #F5F5F5;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--fore-gray);
+  line-height: 1.5;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section transitions */
+section {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Custom image hover effects */
+.image-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Custom heading styles */
+.section-heading {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--fore-green);
+  transition: width 0.3s ease-in-out;
+}
+
+.section-heading:hover::after {
+  width: 100px;
+}
+
+/* Expert image styles */
+.expert-image-container {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom button styles */
+.fore-button {
+  background-color: var(--fore-green);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.fore-button:hover {
+  background-color: var(--fore-green-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 98, 65, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: 2.5rem;
+  }
   
+  .expert-image-container {
+    width: 240px;
+    height: 240px;
+    margin: 0 auto;
+  }
+}
+
+/* Custom scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hover effect for navigation items */
+.nav-item {
+  position: relative;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--fore-green);
+  transition: width 0.2s ease-in-out;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+/* Focus styles for accessibility */
+:focus {
+  outline: 2px solid var(--fore-green);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  section {
+    page-break-inside: avoid;
+  }
+  
+  .expert-image-container {
+    border: 1px solid #ccc;
+  }
+} 

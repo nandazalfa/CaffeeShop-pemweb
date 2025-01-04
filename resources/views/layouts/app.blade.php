@@ -185,19 +185,16 @@
         <div class="nav-content">
             <img src="/api/placeholder/120/40" alt="Logo" class="logo">
             <div class="nav-links">
-                <a href="#tentang">Tentang</a>
-                <a href="#menu">Menu</a>
-                <a href="#kolaborasi">Kolaborasi</a>
-                <a href="#store">Store</a>
-                <a href="#news">News</a>
+                <a href="{{ url('/tentang') }}">Tentang</a>
+                <a href="{{ url('/product') }}">Menu</a>
+                <a href="{{ url('/kolaborasi') }}">Kolaborasi</a>          
                 <a href="{{ url('/karir') }}" class="{{ Request::is('karir') ? 'active' : '' }}">Karir</a>
-                <a href="#hubungi">Hubungi Kami</a>
+                <a href="{{ url('/hubungi') }}i">Hubungi Kami</a>
                 <div class="language-selector">
                     <span>🇮🇩</span>
                     <span>ID</span>
                     <i class="fas fa-chevron-down text-xs ml-1"></i>
                 </div>
-                <a href="#download" class="download-btn">Download App</a>
             </div>
         </div>
     </nav>

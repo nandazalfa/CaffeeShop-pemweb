@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -421,13 +422,11 @@
         <div class="nav-content">
             <img src="/api/placeholder/120/40" alt="Logo" class="logo">
             <div class="nav-links">
-                <a href="{{ url('/') }}">Tentang</a>
+                <a href="{{ url('/tentang') }}">Tentang</a>
                 <a href="{{ url('/product') }}">Menu</a>
-                <a href="#kolaborasi">Kolaborasi</a>
-                <a href="#store">Store</a>
-                <a href="#news">News</a>
+                <a href="{{ url('/kolaborasi') }}">Kolaborasi</a>
                 <a href="{{ url('/karir') }}">Karir</a>
-                <a href="#hubungi">Hubungi Kami</a>
+                <a href="{{ url('/hubungi') }}">Hubungi Kami</a>
                 <div class="language-selector">
                     <span>🇮🇩</span>
                     <span>ID</span>
