@@ -34,5 +34,5 @@ Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
 //halaman kolaborasi
 Route::get('/kolaborasi', [KolaborasiController::class, 'index'])->name('kolaborasi');
 //halaman hubungi
-Route::get('/hubungi', [HubungiController::class, 'index'])->name('hubungi');
+Route::get('/hubungii', [HubungiController::class, 'index'])->name('hubungi');
 Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
