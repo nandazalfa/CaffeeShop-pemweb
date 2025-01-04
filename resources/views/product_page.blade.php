@@ -14,7 +14,7 @@
         }
         /* Navbar */
         .navbar {
-            background-color: white;
+            background-color: white;    
             padding: 1rem 0;
             position: fixed;
             width: 100%;
@@ -142,9 +142,102 @@
             }
         }
 
+<<<<<<< HEAD
         /* Add to Cart Button */
         .btn-buy {
             background-color: #388e3c;
+=======
+        .cart-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            transition: right 0.3s ease-in-out;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .cart-panel.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h2 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: #388e3c;
+            font-weight: 500;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .cart-summary {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            background-color: #f9f9f9;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #25d366;
+>>>>>>> 6bda205493357022b2b2b3663d41f8a8de8e5343
             color: white;
             border: none;
             padding: 7px 10px;
@@ -294,6 +387,7 @@
 
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartCount();
+<<<<<<< HEAD
             showToast();
         }
 
@@ -318,6 +412,20 @@
         // Memanggil updateCartCount saat halaman dimuat
         window.onload = updateCartCount;
 
+=======
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Menghitung jumlah total item dalam keranjang
+            const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+            // Menampilkan jumlah total item pada ikon keranjang
+            document.getElementById('cart-count').textContent = cartCount;
+        }
+        window.onload = updateCartCount;
+>>>>>>> 6bda205493357022b2b2b3663d41f8a8de8e5343
     </script>
 </body>
 </html>
