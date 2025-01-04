@@ -13,7 +13,7 @@
         }
         
         .navbar {
-            background-color: white;
+            background-color: white;    
             padding: 1rem 0;
             position: fixed;
             width: 100%;
@@ -311,6 +311,7 @@
             z-index: 2000;
             display: flex;
             flex-direction: column;
+            transition: right 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .cart-panel.open {
@@ -554,10 +555,11 @@
                     currentProduct.price,
                     currentQuantity
                 );
-                // Membuka panel keranjang
-                toggleCart();
+                closeModal(); // Tutup modal "Pilih Varian"
+                toggleCart(); // Membuka panel keranjang
             }
         }
+
 
         function toggleCart() {
             const cartPanel = document.getElementById('cartPanel');
@@ -648,8 +650,19 @@
 
             // Simpan kembali ke localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
         }
 
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Menghitung jumlah total item dalam keranjang
+            const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+            // Menampilkan jumlah total item pada ikon keranjang
+            document.getElementById('cart-count').textContent = cartCount;
+        }
+        window.onload = updateCartCount;
     </script>
 </body>
 </html>
