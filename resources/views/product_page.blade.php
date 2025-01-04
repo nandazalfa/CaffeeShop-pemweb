@@ -298,6 +298,121 @@
                 font-size: 0.9rem;
             }
         }
+
+        .cart-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            transition: right 0.3s ease-in-out;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-panel.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h2 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: #388e3c;
+            font-weight: 500;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .cart-summary {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            background-color: #f9f9f9;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background-color: #1da856;
+        }
+
+        .delivery-info {
+            padding: 10px 20px;
+            background-color: #f5f5f5;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .cart-panel {
+                width: 100%;
+                right: -100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -369,6 +484,26 @@
         Produk berhasil ditambahkan ke keranjang!
     </div>
 
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <h2>Keranjang</h2>
+            <button class="close-modal" onclick="closeCart()">&times;</button>
+        </div>
+        <div class="delivery-info">
+            <i class="fas fa-clock"></i> Waktu pengantaran: 30 mnt (2,3 km)
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>Total Harga</span>
+                <span id="cartTotal">Rp0</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Cek Pesanan</button>
+        </div>
+    </div>
+
     <script>
         let currentProduct = null;
         let currentQuantity = 1;
@@ -419,49 +554,102 @@
                     currentProduct.price,
                     currentQuantity
                 );
-                // Navigate to cart page after adding to cart
-                window.location.href = '{{ route("cart") }}';
+                // Membuka panel keranjang
+                toggleCart();
             }
         }
 
-        function addToCart(productId, productName, productPrice, quantity) {
-            if (quantity <= 0) {
-                alert('Pilih jumlah produk yang valid.');
-                return;
+        function toggleCart() {
+            const cartPanel = document.getElementById('cartPanel');
+            cartPanel.classList.toggle('open');
+            if (cartPanel.classList.contains('open')) {
+                updateCartDisplay();
             }
+        }
 
+        function closeCart() {
+            document.getElementById('cartPanel').classList.remove('open');
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const existingProduct = cart.find(item => item.productId === productId);
+            
+            cartItems.innerHTML = '';
+            let total = 0;
 
-            if (existingProduct) {
-                existingProduct.quantity += quantity;
+            cart.forEach(item => {
+                const itemTotal = item.productPrice * item.quantity;
+                total += itemTotal;
+
+                cartItems.innerHTML += `
+                    <div class="cart-item">
+                        <img src="/api/placeholder/80/80" alt="${item.productName}">
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.productName}</div>
+                            <div class="cart-item-price">Rp${item.productPrice.toLocaleString('id-ID')}</div>
+                            <div class="cart-item-quantity">
+                                <button onclick="updateCartItemQuantity('${item.productId}', ${item.quantity - 1})">-</button>
+                                <span>${item.quantity}</span>
+                                <button onclick="updateCartItemQuantity('${item.productId}', ${item.quantity + 1})">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartTotal.textContent = `Rp${total.toLocaleString('id-ID')}`;
+        }
+
+        function updateCartItemQuantity(productId, newQuantity) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (newQuantity <= 0) {
+                const newCart = cart.filter(item => item.productId !== productId);
+                localStorage.setItem('cart', JSON.stringify(newCart));
             } else {
-                cart.push({
-                    productId,
-                    productName,
-                    productPrice,
-                    quantity
-                });
+                const item = cart.find(item => item.productId === productId);
+                if (item) {
+                    item.quantity = newQuantity;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                }
             }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
             updateCartCount();
         }
 
-        function updateCartCount() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-            document.getElementById('cart-count').textContent = cartCount;
+        function checkout() {
+            // Implement checkout logic here
+            alert('Memproses pesanan...');
         }
 
-        window.onclick = function(event) {
-            const modal = document.getElementById('productModal');
-            if (event.target === modal) {
-                closeModal();
-            }
+        // Update click handler for cart icon
+        document.querySelector('.cart-icon').onclick = function(e) {
+            e.preventDefault();
+            toggleCart();
         };
 
-        window.onload = updateCartCount;
+        function addToCart(productId, productName, productPrice, quantity) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Cek apakah item sudah ada di keranjang
+            const existingItem = cart.find(item => item.productId === productId);
+            if (existingItem) {
+                existingItem.quantity += quantity;  // Jika sudah ada, tambahkan jumlahnya
+            } else {
+                // Jika tidak ada, buat item baru
+                cart.push({
+                    productId: productId,
+                    productName: productName,
+                    productPrice: productPrice,
+                    quantity: quantity
+                });
+            }
+
+            // Simpan kembali ke localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
     </script>
 </body>
 </html>
