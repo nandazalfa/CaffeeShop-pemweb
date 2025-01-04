@@ -414,18 +414,15 @@
         <div class="nav-content">
             <img src="/api/placeholder/120/40" alt="Logo" class="logo">
             <div class="nav-links">
-                <a href="#tentang">Tentang</a>
+                <a href="{{ url('/tentang') }}">Tentang</a>
                 <a href="{{ url('/product') }}">Menu</a>
-                <a href="#kolaborasi">Kolaborasi</a>
-                <a href="#store">Store</a>
-                <a href="#news">News</a>
+                <a href="{{ url('/kolaborasi') }}">Kolaborasi</a>
                 <a href="{{ url('/karir') }}">Karir</a>
-                <a href="#hubungi">Hubungi Kami</a>
+                <a href="{{ url('/hubungi') }}">Hubungi Kami</a>
                 <div class="language-selector">
                     <span>🇮🇩</span>
                     <span>ID</span>
                 </div>
-                <a href="#download" class="download-btn">Download App</a>
             </div>
         </div>
     </nav>
@@ -781,3 +778,4 @@
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126646.51380936121!2d112.71268687362064!3d-7.275619143075757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf8381ac47f%3A0x3027a76e352be40!2sSurabaya%2C%20Surabaya%20City%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1703317234676!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
+  
