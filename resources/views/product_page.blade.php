@@ -426,7 +426,7 @@
                 <a href="{{ url('/product') }}">Menu</a>
                 <a href="{{ url('/kolaborasi') }}">Kolaborasi</a>
                 <a href="{{ url('/karir') }}">Karir</a>
-                <a href="{{ url('/hubungi') }}">Hubungi Kami</a>
+                <a href="{{ url('/hubungii') }}">Hubungi Kami</a>
                 <div class="language-selector">
                     <span>🇮🇩</span>
                     <span>ID</span>
@@ -489,9 +489,6 @@
             <h2>Keranjang</h2>
             <button class="close-modal" onclick="closeCart()">&times;</button>
         </div>
-        <div class="delivery-info">
-            <i class="fas fa-clock"></i> Waktu pengantaran: 30 mnt (2,3 km)
-        </div>
         <div class="cart-items" id="cartItems">
             <!-- Cart items will be dynamically added here -->
         </div>
@@ -545,6 +542,7 @@
                 document.getElementById('quantity').textContent = currentQuantity;
             }
         }
+        
 
         function addToCartAndNavigate() {
             if (currentProduct) {
@@ -552,12 +550,14 @@
                     currentProduct.id,
                     currentProduct.name,
                     currentProduct.price,
-                    currentQuantity
+                    currentQuantity,
+                    currentProduct.image_url // Pastikan mengambil image_url dari currentProduct
                 );
                 closeModal(); // Tutup modal "Pilih Varian"
                 toggleCart(); // Membuka panel keranjang
             }
         }
+
 
 
         function toggleCart() {
@@ -573,35 +573,35 @@
         }
 
         function updateCartDisplay() {
-            const cartItems = document.getElementById('cartItems');
-            const cartTotal = document.getElementById('cartTotal');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            
-            cartItems.innerHTML = '';
-            let total = 0;
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        cartItems.innerHTML = '';
+        let total = 0;
 
-            cart.forEach(item => {
-                const itemTotal = item.productPrice * item.quantity;
-                total += itemTotal;
+        cart.forEach(item => {
+            const itemTotal = item.productPrice * item.quantity;
+            total += itemTotal;
 
-                cartItems.innerHTML += `
-                    <div class="cart-item">
-                        <img src="/api/placeholder/80/80" alt="${item.productName}">
-                        <div class="cart-item-details">
-                            <div class="cart-item-name">${item.productName}</div>
-                            <div class="cart-item-price">Rp${item.productPrice.toLocaleString('id-ID')}</div>
-                            <div class="cart-item-quantity">
-                                <button onclick="updateCartItemQuantity('${item.productId}', ${item.quantity - 1})">-</button>
-                                <span>${item.quantity}</span>
-                                <button onclick="updateCartItemQuantity('${item.productId}', ${item.quantity + 1})">+</button>
-                            </div>
+            cartItems.innerHTML += `
+                <div class="cart-item">
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.productName}</div>
+                        <div class="cart-item-price">Rp${item.productPrice.toLocaleString('id-ID')}</div>
+                        <div class="cart-item-quantity">
+                            <button onclick="updateCartItemQuantity('${item.productId}', ${item.quantity - 1})">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="updateCartItemQuantity('${item.productId}', ${item.quantity + 1})">+</button>
                         </div>
                     </div>
-                `;
-            });
+                </div>
+            `;
+        });
 
-            cartTotal.textContent = `Rp${total.toLocaleString('id-ID')}`;
-        }
+        cartTotal.textContent = `Rp${total.toLocaleString('id-ID')}`;
+    }
+
 
         function updateCartItemQuantity(productId, newQuantity) {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -622,6 +622,7 @@
         function checkout() {
             // Implement checkout logic here
             alert('Memproses pesanan...');
+            window.location.href = "/transaksi";
         }
 
         // Update click handler for cart icon
@@ -630,7 +631,7 @@
             toggleCart();
         };
 
-        function addToCart(productId, productName, productPrice, quantity) {
+        function addToCart(productId, productName, productPrice, quantity, imageUrl) {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
             // Cek apakah item sudah ada di keranjang
@@ -643,7 +644,8 @@
                     productId: productId,
                     productName: productName,
                     productPrice: productPrice,
-                    quantity: quantity
+                    quantity: quantity,
+                    image_url: imageUrl // Tambahkan properti image_url
                 });
             }
 
@@ -651,6 +653,7 @@
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartCount();
         }
+
 
         function updateCartCount() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];

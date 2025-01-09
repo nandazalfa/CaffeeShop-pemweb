@@ -193,9 +193,9 @@
   <!-- Kolaborasi Section -->
   <section class="kolaborasi-section">
     <div class="hero-images">
-      <img src="https://fore.coffee/wp-content/uploads/2023/08/image-12.png" alt="Barista in brown outfit" />
-      <img src="https://fore.coffee/wp-content/uploads/2023/08/image-13.png" alt="Person in striped sweater" />
-      <img src="https://fore.coffee/wp-content/uploads/2023/08/image-14.png" alt="Person in green sweater" />
+      <img src="https://i.pinimg.com/736x/14/41/e3/1441e3d8f5a4f576430d868db1e3c367.jpg" alt="Barista in brown outfit" />
+      <img src="https://i.pinimg.com/736x/36/ff/2a/36ff2a0d2e6eeda77a2effdfa633ae18.jpg" alt="Person in striped sweater" />
+      <img src="https://i.pinimg.com/474x/4c/36/94/4c36949073676d5091b87f1989293c41.jpg" alt="Person in green sweater" />
     </div>
 
     <h1 class="title">Kolaborasi</h1>
@@ -256,7 +256,7 @@
     </div>
     
     <div class="partner-image">
-      <img src="https://fore.coffee/wp-content/uploads/2023/08/1.png" alt="Person holding drinks" />
+      <img src="https://i.pinimg.com/736x/92/96/1a/92961aa4a4c03dfc38a282c9ea36401b.jpg" alt="Person holding drinks" />
     </div>
   </section>
 </body>

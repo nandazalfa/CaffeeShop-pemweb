@@ -141,10 +141,9 @@
         }
 
         .product-image {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 8px;
+            width: 80px;         /* Sesuaikan ukuran gambar */
+            height: 80px;        /* Atur tinggi gambar */
+            object-fit: contain;  /* Agar gambar tidak terdistorsi */
         }
 
         .product-details {
@@ -309,21 +308,17 @@
             }
 
             cartItemsContainer.innerHTML = cart.map(item => `
-                <div class="cart-item">
-                    <div class="cart-item-content">
-                        <div class="quantity-controls">
-                            <button class="quantity-btn" onclick="updateQuantity(${item.productId}, ${item.quantity - 1})">-</button>
-                            <span class="quantity">${item.quantity}</span>
-                            <button class="quantity-btn" onclick="updateQuantity(${item.productId}, ${item.quantity + 1})">+</button>
-                        </div>
-                        <img src="${item.image_url}" alt="${item.productName}" class="product-image">
-                        <div class="product-details">
-                            <span class="product-name">${item.productName}</span>
-                            <span class="product-price">Rp ${formatCurrency(item.productPrice)}</span>
-                        </div>
+            <div class="cart-item">
+                <div class="cart-item-content">
+                    <img src="${item.image_url}" alt="${item.productName}" class="product-image">
+                    <div class="product-details">
+                        <span class="product-name">${item.productName}</span>
+                        <span class="product-price">${item.quantity} x Rp ${formatCurrency(item.productPrice)}</span>
                     </div>
                 </div>
+            </div>
             `).join('');
+
 
             const subtotal = cart.reduce((total, item) => total + (item.productPrice * item.quantity), 0);
             updatePriceSummary(subtotal);
@@ -403,7 +398,7 @@
             // Clear cart after successful order
             localStorage.removeItem('cart');
             alert('Pesanan Anda telah berhasil diproses!');
-            window.location.href = '/order-success';
+            window.location.href = '/struk';
         }
 
         // Initialize cart display

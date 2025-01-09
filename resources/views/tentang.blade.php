@@ -15,12 +15,13 @@ function includeHeader() {
     <title>About Fore Coffee</title>
     <style>
         /* Global styles */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
 
         :root {
             --fore-green: #006241;
             --fore-gray: #4A4A4A;
             --fore-light-gray: #F5F5F5;
+            --fore-gradient: linear-gradient(135deg, #006241, #00A86B);
         }
 
         * {
@@ -38,12 +39,12 @@ function includeHeader() {
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 10px; /* Memperpendek padding container */
         }
 
         /* Section styles */
         .section {
-            padding: 80px 0;
+            padding: 40px 0; /* Mengurangi jarak antar section */
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -89,6 +90,8 @@ function includeHeader() {
             width: 100%;
             height: 500px;
             overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
 
         .image-container img {
@@ -97,18 +100,57 @@ function includeHeader() {
             object-fit: cover;
         }
 
-        .expert-image {
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto;
+        .hero {
+            text-align: center;
+            background: url('https://i.pinimg.com/originals/c0/17/25/c017250e30f153842a896791e6bdaae8.gif') no-repeat center center/cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
         }
 
-        .expert-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .hero h1 {
+            font-size: 64px;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-top: 10px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .testimonials {
+            background-color: var(--fore-light-gray);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .testimonial {
+            margin-bottom: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        .testimonial p {
+            font-size: 16px;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .testimonial .author {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--fore-gray);
         }
 
         /* Responsive */
@@ -136,52 +178,35 @@ includeHeader();
 ?>
 
 <main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Nestara Caffee</h1>
+        <p>"Tempat Dimana Kopi dan Cerita Bertemu."</p>
+    </section>
+
     <!-- About Fore Section -->
     <section class="section">
         <div class="section-half">
             <div class="image-container">
-                <img src="https://fore.coffee/wp-content/uploads/2023/09/ourstory2.png" alt="Cafe Interior">
+                <img src="https://i.pinimg.com/736x/cd/22/1e/cd221ee7739d4066b48df7a33eef4a36.jpg" alt="Cafe Interior">
             </div>
         </div>
         <div class="section-half">
             <div class="container">
                 <div class="section-title">
                     <div class="section-line"></div>
-                    <span class="section-label">About Fore</span>
+                    <span class="section-label">About Nestara</span>
                 </div>
-                <h1 class="heading">Cerita Kami</h1>
+                <h1 class="heading">Our Story</h1>
                 <p class="text">
-                    Mari berkenalan dengan tim kami mulai dari toko, lingkungan, dan orang-orang yang bekerja bersama kami!
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Story Section -->
-    <section class="section">
-        <div class="section-half">
-            <div class="container">
-                <div class="section-title">
-                    <div class="section-line"></div>
-                    <span class="section-label">Our Story</span>
-                </div>
-                <h2 class="heading">Grind The<br>Essentials</h2>
-                <p class="text">
-                    Di dunia yang serba cepat, mudah sekali kita kehilangan fokus terhadap apa yang sebenarnya penting. 
-                    Fore menyediakan tempat bernaung, dimana kamu bisa beristirahat sejenak dan menikmati secangkir kopi 
-                    berkualitas tinggi. Filosofi ini juga terlihat dalam tagline kami.
+                    Nestara Coffee is a place designed to bring comfort, warmth, and the finest coffee flavors in every sip. Inspired by the spirit of togetherness and creativity, Nestara Coffee is not just a spot to enjoy coffee but also a space to share stories, meet friends, or simply spend time alone.
                 </p>
                 <p class="text">
-                    Dengan menggunakan kata "Grind" yang memiliki dua arti: 'Grind' sebagai usaha keras yang dilakukan 
-                    tiap hari oleh semua orang, dan 'Grind' yang merupakan langkah penting dalam proses pembuatan kopi, 
-                    Fore ingin menginspirasi orang untuk menyadari hal penting dalam kehidupan di tengah-tengah kesibukan 
-                    mereka melalui tiap cangkir kopi yang kami sajikan.
+                    We serve a wide variety of specialty coffee crafted from premium coffee beans sourced in collaboration with the best local farmers. Every cup is brewed with care to ensure exceptional quality and taste. In addition to our coffee, we offer a selection of light bites and meals, thoughtfully prepared with fresh and natural ingredients to complement any occasion.
                 </p>
-            </div>
-        </div>
-        <div class="section-half">
-            <div class="image-container">
-                <img src="path/to/coffee-grinding.jpg" alt="Coffee Grinding Process">
+                <p class="text">
+                    With its modern yet cozy interior design, Nestara Coffee is the perfect place to work, relax, or spend quality time. We believe every visit to Nestara Coffee is a memorable experience, whether you're a coffee enthusiast or someone looking for a welcoming and comfortable atmosphere.
+                </p>
             </div>
         </div>
     </section>
@@ -203,22 +228,16 @@ includeHeader();
         </div>
     </section>
 
-    <!-- Expert Section -->
-    <section class="section" style="background-color: var(--fore-light-gray);">
-        <div class="section-half">
-            <div class="expert-image">
-                <img src="path/to/expert.jpg" alt="Our Expert">
-            </div>
+  
+    <section class="testimonials">
+        <h2 class="heading">What Our Customers Say</h2>
+        <div class="testimonial">
+            <p>"Nestara Coffee has the best atmosphere and the most delicious coffee I've ever tasted!"</p>
+            <span class="author">- Amanda, Coffee Enthusiast</span>
         </div>
-        <div class="section-half">
-            <div class="container">
-                <h2 class="heading">Our Experts Says</h2>
-                <p class="text">
-                    Kami mentransformasi visi kami dalam menawarkan kopi berkualitas tinggi ke pelanggan menjadi 
-                    sebuah prestasi yang bisa dicapai. Fore Coffee adalah <em>brand</em> kopi yang sangat berkomitmen 
-                    untuk memberikan pengalaman terbaik.
-                </p>
-            </div>
+        <div class="testimonial">
+            <p>"I love coming here to relax and enjoy the warm ambiance. Highly recommended!"</p>
+            <span class="author">- Brian, Regular Customer</span>
         </div>
     </section>
 </main>
