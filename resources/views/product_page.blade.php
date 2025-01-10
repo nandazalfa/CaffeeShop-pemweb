@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Page - Hanila Brew</title>
+    <title>Product Page - Nestara Coffee</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', sans-serif; /* Font modern sans-serif */
             background-color: #fafafa;
             padding-top: 80px;
         }
-        
+        /* Navbar */
         .navbar {
             background-color: white;    
             padding: 1rem 0;
@@ -56,225 +56,83 @@
             margin-left: 1rem;
         }
 
+        /* Category Title */
         .category-title {
             text-align: center;
             font-size: 1.5em;
-            color: #2e7d32;
+            color: #2e7d32; /* Dark Green */
             margin: 10px 0 10px;
             font-weight: bold;
         }
 
+        /* Container untuk list produk */
         .container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            display: grid; /* Menggunakan grid untuk penataan produk */
+            grid-template-columns: repeat(3, 1fr); /* Menampilkan 3 kolom */
+            gap: 20px; /* Jarak antar item produk */
             padding: 20px;
         }
 
-        .product {
-            display: flex;
-            align-items: stretch;
-            background-color: white;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            border-radius: 10px;
-            gap: 15px;
-            cursor: pointer;
-            transition: transform 0.2s;
-            height: auto;
-        }
-
-        .product:hover {
-            transform: translateY(-2px);
-        }
-
-        .product img {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-            border-radius: 10px;
-            background-color: #f5f5f5;
-        }
-
-        .product-info {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .product h3 {
-            font-size: 1rem;
-            color: #333;
-            margin: 0 0 5px;
-        }
-
-        .product .description {
-            font-size: 0.9rem;
-            color: #666;
-            margin: 5px 0;
-        }
-
-        .product .price {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #388e3c;
-            margin: 5px 0;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            position: relative;
-            background-color: white;
-            margin: 20px auto;
-            padding: 0;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .modal-header h2 {
-            margin: 0;
-            font-size: 1.2rem;
-        }
-
-        .close-modal {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #666;
-            padding: 0;
-            line-height: 1;
-        }
-
-        .modal-body {
-            padding: 20px;
-        }
-
-        .modal-image-container {
-            width: 100%;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f5f5f5;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 15px;
-        }
-
-        .modal-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .quantity-selector {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin: 20px 0;
-            justify-content: center;
-        }
-
-        .quantity-btn {
-            background-color: #f0f0f0;
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .quantity-btn:hover {
-            background-color: #e0e0e0;
-        }
-
-        .quantity-value {
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        .continue-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: #25d366;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .continue-btn:hover {
-            background-color: #1da856;
-        }
-
-        #toast {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #388e3c;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 8px;
-            display: none;
-            z-index: 3000;
-            font-size: 18px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            font-weight: bold;
-        }
-
-        .cart-count {
-            background-color: #388e3c;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 0.8rem;
-            margin-left: 5px;
-        }
-
+        /* Responsif untuk perangkat kecil */
         @media (max-width: 1024px) {
             .container {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr); /* 2 kolom pada layar menengah */
             }
         }
 
         @media (max-width: 768px) {
             .container {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* 1 kolom pada perangkat kecil */
             }
+        }
 
+        /* Card Produk Horizontal */
+        .product {
+            display: flex; /* Atur card dalam bentuk horizontal */
+            align-items: center;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            gap: 15px; /* Jarak antara elemen gambar dan informasi */
+        }
+
+        /* Gambar produk */
+        .product img {
+            width: 80px; /* Ukuran gambar lebih kecil */
+            height: 80px;
+            object-fit: cover; /* Menyesuaikan gambar */
+            border-radius: 10px;
+        }
+
+        /* Info produk */
+        .product-info {
+            flex-grow: 1; /* Biarkan info mengambil ruang tersisa */
+        }
+
+        .product h3 {
+            font-size: 1rem; /* Ukuran font lebih kecil */
+            color: #333;
+            margin: 0 0 5px;
+        }
+
+        .product .price {
+            font-size: 1.1rem; /* Ukuran harga sedikit lebih besar */
+            font-weight: bold;
+            color: #388e3c;
+            margin: 5px 0;
+        }
+
+        .product .btn-buy {
+            align-self: flex-end;
+            margin-top: 10px;
+            background-color: #25d366; /* Hijau ala WhatsApp */
+        }
+
+        /* Responsif untuk perangkat kecil */
+        @media (max-width: 768px) {
             .product {
-                flex-direction: row;
+                flex-direction: column; /* Produk vertikal */
                 align-items: center;
             }
 
@@ -282,22 +140,11 @@
                 width: 100px;
                 height: 100px;
             }
+        }
 
-            .modal-image-container {
-                height: 250px;
-            }
-
-            .nav-content {
-                padding: 0 1rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .nav-links a {
-                font-size: 0.9rem;
-            }
+        /* Add to Cart Button */
+        .btn-buy {
+            background-color: #388e3c;
         }
 
         .cart-panel {
@@ -392,28 +239,75 @@
             background-color: #25d366;
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 500;
+            padding: 7px 10px;
+            font-size: 1em;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .btn-buy:hover {
+            background-color: #2e7d32;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #388e3c;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        /* WhatsApp Chat Button */
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 1.5em;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             cursor: pointer;
         }
 
-        .checkout-btn:hover {
-            background-color: #1da856;
-        }
-
-        .delivery-info {
-            padding: 10px 20px;
-            background-color: #f5f5f5;
-            font-size: 0.9rem;
-            color: #666;
+        .whatsapp-chat a {
+            color: white;
         }
 
         @media (max-width: 768px) {
-            .cart-panel {
-                width: 100%;
-                right: -100%;
+            .container {
+                flex-direction: column;
+                align-items: center;
             }
+
+            .navbar .navbar-menu {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 10px;
+            }
+
+            .navbar .navbar-left {
+                font-size: 1.4em;
+            }
+        }
+
+        #toast {
+            position: fixed;
+            top: 50%; /* Menempatkan toast di tengah layar secara vertikal */
+            left: 50%; /* Menempatkan toast di tengah layar secara horizontal */
+            transform: translate(-50%, -50%); /* Menyesuaikan posisi agar tepat di tengah */
+            background-color: #388e3c; /* Warna latar belakang hijau */
+            color: white; /* Warna teks putih */
+            padding: 15px 30px; /* Ukuran padding agar lebih terlihat jelas */
+            border-radius: 8px; /* Sudut melengkung */
+            display: none; /* Awalnya disembunyikan */
+            z-index: 1000;
+            font-size: 18px; /* Ukuran font lebih besar */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Efek bayangan */
+            font-weight: bold; /* Teks tebal */
         }
     </style>
 </head>
@@ -431,59 +325,40 @@
                     <span>🇮🇩</span>
                     <span>ID</span>
                 </div>
+                <!-- Ikon keranjang di navbar -->
                 <a href="{{ route('cart') }}" class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span id="cart-count" class="cart-count">0</span>
+                    <i class="fas fa-shopping-cart"></i> <!-- Ikon Keranjang -->
+                    <span id="cart-count" class="cart-count">0</span> <!-- Menampilkan jumlah produk di keranjang -->
                 </a>
             </div>
         </div>
     </nav>
 
+    <!-- Categories and Products -->
     @foreach ($categories as $category)
         <h2 class="category-title">{{ ucfirst($category) }}</h2>
         <div class="container">
             @foreach ($products as $product)
                 @if ($product->category == $category)
-                <div class="product" onclick="openModal('{{ $product->id }}', '{{ $product->name }}', {{ $product->price }}, '{{ $product->description }}', '{{ $product->image_url }}')">
-                    <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
+                <div class="product">
+                    <img src="{{ $product->image_url }}" alt="Product Image">
                     <div class="product-info">
                         <h3>{{ $product->name }}</h3>
-                        <p class="description">{{ $product->description }}</p>
-                        <p class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
+                        <p>{{ $product->description }}</p>
+                        <p class="price">Rp {{ number_format($product->price, 2) }}</p>
                     </div>
+                    <!-- Tombol beli -->
+                    <button class="btn-buy" onclick="addToCart('{{ $product->id }}', '{{ $product->name }}', {{ $product->price }}, 1)">+</button>
                 </div>
                 @endif
             @endforeach
         </div>
     @endforeach
 
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Pilih Varian</h2>
-                <button class="close-modal" onclick="closeModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image-container">
-                    <img id="modalImage" src="" alt="Product Image" class="modal-image">
-                </div>
-                <h3 id="modalProductName"></h3>
-                <p id="modalDescription"></p>
-                <p id="modalPrice" class="price"></p>
-                <div class="quantity-selector">
-                    <button class="quantity-btn" onclick="decrementQuantity()">-</button>
-                    <span id="quantity" class="quantity-value">1</span>
-                    <button class="quantity-btn" onclick="incrementQuantity()">+</button>
-                </div>
-                <button class="continue-btn" onclick="addToCartAndNavigate()">Lanjutkan ke Keranjang</button>
-            </div>
-        </div>
-    </div>
-
+    <!-- Toast Notification -->
     <div id="toast">
         Produk berhasil ditambahkan ke keranjang!
     </div>
-
     <div class="cart-panel" id="cartPanel">
         <div class="cart-header">
             <h2>Keranjang</h2>
@@ -632,26 +507,59 @@
         };
 
         function addToCart(productId, productName, productPrice, quantity, imageUrl) {
+    <!-- JavaScript -->
+    <script>
+        // Fungsi untuk menambah produk ke keranjang
+        function addToCart(productId, productName, productPrice, quantity) {
+            if (quantity <= 0) {
+                alert('Pilih jumlah produk yang valid.');
+                return;
+            }
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-            // Cek apakah item sudah ada di keranjang
-            const existingItem = cart.find(item => item.productId === productId);
-            if (existingItem) {
-                existingItem.quantity += quantity;  // Jika sudah ada, tambahkan jumlahnya
+            const existingProduct = cart.find(item => item.productId === productId);
+
+            if (existingProduct) {
+                existingProduct.quantity += quantity;
             } else {
-                // Jika tidak ada, buat item baru
                 cart.push({
                     productId: productId,
                     productName: productName,
                     productPrice: productPrice,
                     quantity: quantity,
                     image_url: imageUrl // Tambahkan properti image_url
+                    productId,
+                    productName,
+                    productPrice,
+                    quantity
                 });
             }
 
-            // Simpan kembali ke localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartCount();
+            showToast();
+        }
+
+        // Fungsi untuk menampilkan toast
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.style.display = 'block'; // Tampilkan toast
+
+            // Sembunyikan toast setelah 3 detik
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+
+        // Update jumlah produk di ikon keranjang
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = cartCount;
+        }
+
+        // Memanggil updateCartCount saat halaman dimuat
+        window.onload = updateCartCount;
         }
 
 

@@ -43,3 +43,4 @@ Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
 Route::post('/transactions', [TransactionController::class, 'store']);
 Route::post('/api/transactions', [TransactionController::class, 'store']);
 Route::get('/transactions/{id}/receipt', [TransactionController::class, 'generateReceipt'])->name('transactions.receipt');
+Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
