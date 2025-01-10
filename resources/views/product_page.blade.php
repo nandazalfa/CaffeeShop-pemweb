@@ -622,7 +622,7 @@
         function checkout() {
             // Implement checkout logic here
             alert('Memproses pesanan...');
-            window.location.href = "/transaksi";
+            window.location.href = "/checkout";
         }
 
         // Update click handler for cart icon
