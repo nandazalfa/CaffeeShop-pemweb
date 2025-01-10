@@ -33,7 +33,7 @@
         }
 
         .logo {
-            height: 40px;
+            height: 90px;
         }
 
         .nav-links {
@@ -420,13 +420,13 @@
 <body>
     <nav class="navbar">
         <div class="nav-content">
-            <img src="/api/placeholder/120/40" alt="Logo" class="logo">
+            <img src="https://i.pinimg.com/736x/a1/23/8f/a1238f01e1eba65044714a350d8c2567.jpg" alt="Logo" class="logo">
             <div class="nav-links">
-                <a href="{{ url('/tentang') }}">Tentang</a>
+                <a href="{{ url('/tentang') }}">About</a>
                 <a href="{{ url('/product') }}">Menu</a>
-                <a href="{{ url('/kolaborasi') }}">Kolaborasi</a>
-                <a href="{{ url('/karir') }}">Karir</a>
-                <a href="{{ url('/hubungii') }}">Hubungi Kami</a>
+                <a href="{{ url('/kolaborasi') }}">Collaboration</a>
+                <a href="{{ url('/karir') }}">Career</a>
+                <a href="{{ url('/hubungii') }}">Contact Us</a>
                 <div class="language-selector">
                     <span>🇮🇩</span>
                     <span>ID</span>

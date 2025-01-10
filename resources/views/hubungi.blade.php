@@ -145,14 +145,14 @@
 <body>
   <section class="contact-section">
     <div class="contact-header">
-      <h1>Hubungi Kami</h1>
-      <p>Ada pertanyaan atau komentar? Cukup tulis pesan kepada kami!</p>
+      <h1>Contact Us</h1>
+      <p>Do you have any questions or comments? Just send us a message!</p>
     </div>
 
     <div class="contact-content">
       <div class="contact-info">
-        <h2>Informasi Kontak</h2>
-        <p>Jika Anda mempunyai pertanyaan atau kekhawatiran, Anda dapat menghubungi kami dengan mengisi formulir kontak, menelepon kami, datang ke kantor kami, menemukan kami di jejaring sosial lain, atau Anda dapat mengirim email pribadi kepada kami di:</p>
+        <h2>Contact Information</h2>
+        <p>If you have any questions or concerns, you can reach out to us by filling out the contact form, calling us, visiting our office, finding us on other social networks, or you can send us a personal email at:</p>
         
         <ul class="contact-details">
           <li>
@@ -161,7 +161,7 @@
           </li>
           <li>
             <img src="https://fore.coffee/wp-content/uploads/2023/08/ic_sharp-email.png" alt="Email icon" />
-            <span>hello@fore.coffee</span>
+            <span>hello@Nestara.coffee</span>
           </li>
           <li>
             <img src="https://fore.coffee/wp-content/uploads/2023/08/carbon_location-filled.png" alt="Location icon" />

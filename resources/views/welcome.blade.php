@@ -46,7 +46,7 @@
         }
 
         .logo {
-            height: 40px;
+            height: 90px;
         }
 
         .nav-links {
@@ -412,13 +412,13 @@
 <body>
     <nav class="navbar">
         <div class="nav-content">
-            <img src="/api/placeholder/120/40" alt="Logo" class="logo">
+            <img src="https://i.pinimg.com/736x/a1/23/8f/a1238f01e1eba65044714a350d8c2567.jpg" alt="Logo" class="logo">
             <div class="nav-links">
-                <a href="{{ url('/tentang') }}">Tentang</a>
+                <a href="{{ url('/tentang') }}">About</a>
                 <a href="{{ url('/product') }}">Menu</a>
-                <a href="{{ url('/kolaborasi') }}">Kolaborasi</a>
-                <a href="{{ url('/karir') }}">Karir</a>
-                <a href="{{ url('/hubungi') }}">Hubungi Kami</a>
+                <a href="{{ url('/kolaborasi') }}">collaboration</a>
+                <a href="{{ url('/karir') }}">Career</a>
+                <a href="{{ url('/hubungi') }}">Contact Us</a>
                 <div class="language-selector">
                     <span>🇮🇩</span>
                     <span>ID</span>
@@ -430,8 +430,8 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Grind The Essentials</h1>
-                <p>Dibuat dari biji kopi Indonesia pilihan untuk pengalaman minum kopi terbaik setiap hari</p>
+                <h1>Nestara Coffee</h1>
+                <p>Di Setiap Cangkir, Ada Cerita yang Menunggu untuk Diceritakan</p>
                 <div class="slider-controls">
                     <div class="slider-arrow">&#8249;</div>
                     <div class="slider-arrow">&#8250;</div>
@@ -439,23 +439,6 @@
             </div>
             <div class="hero-image">
                 <img src="https://i.pinimg.com/736x/c6/b5/84/c6b58417bcf36debcdcc1f3270c94288.jpg" alt="Coffee Cup">
-            </div>
-        </div>
-    </section>
-
-    <section class="story">
-        <div class="section-title">
-            <h2>Our Story</h2>
-            <p>Perjalanan kami dalam menciptakan pengalaman kopi terbaik</p>
-        </div>
-        <div class="story-content">
-            <div class="story-image">
-                <img src="https://fore.coffee/wp-content/uploads/2023/09/web2.png" alt="Coffee Plantation">
-            </div>
-            <div class="story-text">
-                <h3>Dari Biji Hingga Secangkir Kopi</h3>
-                <p>Kami memulai perjalanan ini dengan satu tujuan sederhana: membawa pengalaman kopi berkualitas tinggi kepada pencinta kopi di Indonesia. Bekerja sama dengan petani kopi lokal terbaik, kami memastikan setiap biji kopi yang kami gunakan dipilih dengan teliti dan diolah dengan sempurna.</p>
-                <p>Setiap cangkir kopi kami menceritakan kisah dedikasi para petani, keahlian para barista, dan komitmen kami untuk memberikan yang terbaik kepada pelanggan kami.</p>
             </div>
         </div>
     </section>
@@ -697,78 +680,7 @@
             </div>
         </div>
     </div>
-</section>
-    <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Promo di Hanilla Coffee
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
-  <style>
-   body {
-            font-family: 'Roboto', sans-serif;
-        }
-  </style>
- </head>
- <body class="bg-[#F5F5F5]">
-  <div class="max-w-screen-xl mx-auto p-4">
-   <div class="text-center py-8">
-    <h1 class="text-4xl font-bold text-[#1A3B34]">
-     Promo di Hanilla Coffee
-    </h1>
-    <p class="text-lg text-[#A3A3A3] mt-2">
-     Temukan berbagai promo menarik di sini!
-    </p>
-   </div>
-   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
-     <h2 class="text-2xl font-bold text-[#1A3B34]">
-      Disc.
-      <span class="text-4xl">
-       30%
-      </span>
-     </h2>
-     <p class="text-lg text-[#1A3B34] mt-2">
-      Treats Foreveryday
-     </p>
-     <img alt="Iced coffee and croissant" class="mx-auto mt-4" height="200" src="https://i.pinimg.com/736x/0e/3a/73/0e3a73816deb0e0d409e83dd959d94c0.jpg" width="200"/>
-     <p class="text-sm text-[#A3A3A3] mt-2">
-      T&amp;C Applied | Limited Quota
-     </p>
-    </div>
-    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
-     <h2 class="text-2xl font-bold text-[#1A3B34]">
-      Saturday
-     </h2>
-     <p class="text-4xl font-bold text-[#1A3B34] mt-2">
-      Free Upsize
-     </p>
-     <img alt="Iced coffee" class="mx-auto mt-4" height="200" src="https://i.pinimg.com/736x/ea/35/65/ea356543fb42b9bef9771a8e70dcf47e.jpg" width="200"/>
-     <p class="text-sm text-[#A3A3A3] mt-2">
-      T&amp;C Applied | Limited Quota
-     </p>
-    </div>
-    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
-     <h2 class="text-2xl font-bold text-[#1A3B34]">
-      Disc.
-      <span class="text-4xl">
-       35%
-      </span>
-     </h2>
-     <p class="text-lg text-[#1A3B34] mt-2">
-      Euforia Festive Deals
-     </p>
-     <img alt="Various coffee drinks and sandwiches" class="mx-auto mt-4" height="200" src="https://i.pinimg.com/736x/05/b3/56/05b3564a22901a72f52534a3dbd7b4d5.jpg" width="200"/>
-     <p class="text-sm text-[#A3A3A3] mt-2">
-      T&amp;C Applied | Limited Quota
-     </p>
-    </div>
-   </div>
-  </div>
+
   <section class="locations">
         <div class="section-title">
             <h2>Our Locations</h2>

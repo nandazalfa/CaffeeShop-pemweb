@@ -11,14 +11,14 @@
                     <div class="flex items-center space-x-2">
                         <div class="w-8 h-0.5 bg-green-800"></div>
                         <h2 class="text-xl font-medium">
-                            Fore <span class="text-green-800">Career</span>
+                            Nestara <span class="text-green-800">Career</span>
                         </h2>
                     </div>
                     <h1 class="text-5xl font-bold text-green-800 leading-tight">
-                        Apakah kamu bersemangat dan siap menjadi inspirasi?
+                        Are you excited and ready to be an inspiration?
                     </h1>
                     <p class="text-xl text-gray-600 leading-relaxed">
-                        Bergabung bersama kami dan jadi bagian dari Start Up Kopi unggulan di Indonesia!
+                        Join us and be a part of the leading Coffee Startup in Indonesia!
                     </p>
                 </div>
 
@@ -35,7 +35,7 @@
     <section class="py-10 bg-gray-50 min-h-screen w-full flex flex-col justify-center items-center">
         <div class="text-center">
             <h1 class="text-4xl font-bold text-gray-800">
-                #FOREactME
+                NESTARActME
             </h1>
             <p class="text-lg text-green-600 mt-2 border border-green-600 inline-block px-4 py-1 rounded-full">
                 We Stand Tall on Our Values
@@ -89,16 +89,16 @@
                     Team Story
                 </div>
                 <h1 class="text-4xl font-bold text-gray-800 mb-4">
-                    Perjalanan Tim Fore Coffee
+                    The Journey of the Nestara Coffee Team
                 </h1>
                 <p class="text-gray-600 mb-4">
-                    Kami selalu mengutamakan konsistensi layanan dan inovasi di berbagai aspek, termasuk produk dan aplikasi yang bisa meningkatkan layanan ke pelanggan. Fore Coffee selalu berusaha untuk menyajikan yang terbaik di tiap cangkir, sehingga semua orang bisa menikmatinya, bukan hanya terbatas untuk penggemar kopi.
+                    We always prioritize consistency in service and innovation across various aspects, including products and applications that enhance customer service. Fore Coffee strives to deliver the best in every cup, so that everyone can enjoy it, not just limited to coffee enthusiasts.
                 </p>
             </div>
         </div>
     </section>
     <section>
-    <title>Lowongan Pekerjaan</title>
+    <title>Job Vacancies</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -106,7 +106,7 @@
     <!-- Section for Job Listings -->
     <section class="bg-green-100 py-10">
         <div class="container mx-auto p-4">
-            <h1 class="text-4xl font-bold text-green-800 mb-6">Lowongan Pekerjaan</h1>
+            <h1 class="text-4xl font-bold text-green-800 mb-6">Job Vacancies</h1>
             <div class="overflow-x-auto">
                 <table class="min-w-full bg-white">
                     <thead>

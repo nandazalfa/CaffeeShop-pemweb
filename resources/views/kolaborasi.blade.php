@@ -193,15 +193,15 @@
   <!-- Kolaborasi Section -->
   <section class="kolaborasi-section">
     <div class="hero-images">
-      <img src="https://i.pinimg.com/736x/14/41/e3/1441e3d8f5a4f576430d868db1e3c367.jpg" alt="Barista in brown outfit" />
-      <img src="https://i.pinimg.com/736x/36/ff/2a/36ff2a0d2e6eeda77a2effdfa633ae18.jpg" alt="Person in striped sweater" />
-      <img src="https://i.pinimg.com/474x/4c/36/94/4c36949073676d5091b87f1989293c41.jpg" alt="Person in green sweater" />
+      <img src="https://i.pinimg.com/736x/22/6b/39/226b39d059d8782a024587d6143ec60d.jpg" alt="Barista in brown outfit" />
+      <img src="https://i.pinimg.com/736x/d9/5c/b4/d95cb4e69e2de383d01bccb96b9a1163.jpg" alt="Person in striped sweater" />
+      <img src="https://i.pinimg.com/736x/ba/63/81/ba6381c4a4f94f6751eb39e9cb70c179.jpg" alt="Person in green sweater" />
     </div>
 
-    <h1 class="title">Kolaborasi</h1>
+    <h1 class="title">Collaboration</h1>
     
     <p class="description">
-      Kami melayani millennial di Indonesia dengan eksplorasi minuman inovatif. Selalu memberikan yang terbaik mulai dari minuman, hingga produk-produk berkualitas tinggi dan layanan lainnya.
+      Nestara Coffee offers a variety of innovative drinks to satisfy the tastes of millennial Indonesians. We always provide the best, from product quality to service that pampers.
     </p>
 
     <div class="product-grid">
@@ -226,8 +226,8 @@
   <!-- Partner Section -->
   <section class="partner-section">
     <div class="partner-form">
-      <h2>Jadi Partner!</h2>
-      <p>Beritahu apa yang kami bisa bantu!</p>
+      <h2>Become a partner!</h2>
+      <p>Let us know how we can help!</p>
       
       <form>
         <div class="form-group">
@@ -256,7 +256,7 @@
     </div>
     
     <div class="partner-image">
-      <img src="https://i.pinimg.com/736x/92/96/1a/92961aa4a4c03dfc38a282c9ea36401b.jpg" alt="Person holding drinks" />
+      <img src="https://i.pinimg.com/736x/9f/80/7f/9f807f027545344be7812db804f5c7b9.jpg" alt="Person holding drinks" />
     </div>
   </section>
 </body>
