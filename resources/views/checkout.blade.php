@@ -14,7 +14,39 @@
         }
 
         .navbar {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;    
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: black;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
         }
 
         .cart-container {
@@ -41,32 +73,29 @@
         .checkout-btn:hover {
             background-color: #008c44;
         }
+
+        
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="https://i.pinimg.com/736x/a1/23/8f/a1238f01e1eba65044714a350d8c2567.jpg" alt="Logo" class="logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/product">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/kolaborasi">Collaboration</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/karir">Career</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#hubungi">Contact Us</a></li>
-                    <li class="nav-item">
-                        <a href="{{ route('cart') }}" class="nav-link">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span id="cart-count" class="badge bg-danger">0</span>
-                        </a>
-                    </li>
-                </ul>
+    <nav class="navbar">
+        <div class="nav-content">
+            <img src="/api/placeholder/120/40" alt="Logo" class="logo">
+            <div class="nav-links">
+                <a href="{{ url('/tentang') }}">Tentang</a>
+                <a href="{{ url('/product') }}">Menu</a>
+                <a href="{{ url('/kolaborasi') }}">Kolaborasi</a>
+                <a href="{{ url('/karir') }}">Karir</a>
+                <a href="{{ url('/hubungii') }}">Hubungi Kami</a>
+                <div class="language-selector">
+                    <span>🇮🇩</span>
+                    <span>ID</span>
+                </div>
+                <a href="{{ route('cart') }}" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
             </div>
         </div>
     </nav>
@@ -195,31 +224,21 @@
                 },
                 body: JSON.stringify(data)
             })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert("Pesanan sedang di proses, Mohon ditunggu.");
-                        localStorage.removeItem('cart');
-                        displayCart();
-                    } else {
-                        alert("Terjadi kesalahan saat memproses pesanan Anda.");
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert("Kesalahan jaringan atau server.");
-                });
-            
+            .then(response => response.json())
+            .then(data => {
             if (data.success) {
                 alert("Pesanan sedang diproses, mohon tunggu.");
                 localStorage.removeItem('cart');
                 displayCart();
 
-                // Tambahkan tautan untuk mengunduh struk
-                window.location.href = `/transactions/${data.transaction_id}/receipt`;
-            }
-        }
+                // Arahkan ke halaman tujuan
+                window.location.href = `/transactions/${data.transaction_id}/receipt`; // Ganti URL ini dengan yang Anda inginkan
+                } else {
+                    alert("Terjadi kesalahan saat memproses pesanan Anda.");
+                }
 
+            })
+        }
 
         document.addEventListener('DOMContentLoaded', () => displayCart());
     </script>

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaction;
-use Barryvdh\DomPDF\Facade as PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class TransactionController extends Controller
 {
@@ -27,19 +28,25 @@ class TransactionController extends Controller
         return response()->json(['success' => true, 'transaction_id' => $transaction->id]);
     }
 
-    public function generateReceipt($id)
+    public function receipt($transactionId)
     {
-        $transaction = Transaction::with('items')->findOrFail($id);
+        // Ambil transaksi berdasarkan ID yang diberikan
+        $transaction = Transaction::findOrFail($transactionId);
 
-        // Siapkan data untuk struk
+
+        // Siapkan data untuk struk (tanpa cart_items)
         $data = [
             'transaction' => $transaction,
         ];
 
-        // Generate PDF
-        $pdf = PDF::loadView('transactions.receipt', $data);
+        // Gunakan alias PDF (Barryvdh\DomPDF\Facade)
+        $pdf = Pdf::loadView('transactions.receipt', $data);
+        $pdf->setPaper('A4', 'portrait');  // Tentukan ukuran kertas
 
-        // Return file PDF
-        return $pdf->stream('receipt.pdf'); // atau ->download('receipt.pdf') untuk unduh langsung
+        // Render dan stream PDF
+        return $pdf->stream('receipt.pdf'); // Atau untuk mengunduh: ->download('receipt.pdf')
     }
+
+
+
 }

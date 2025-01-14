@@ -11,4 +11,5 @@ class TentangController extends Controller
     {
         return view('tentang'); // Menampilkan view tentang.blade.php
     }
+    
 }

@@ -3,69 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Struk Pembelian</title>
+    <title>Receipt</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f7f7f7;
         }
-        .container {
-            width: 80%;
-            margin: 0 auto;
+        .receipt-container {
+            max-width: 400px;
+            background: white;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .header {
             text-align: center;
             margin-bottom: 20px;
         }
-        .items-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
         }
-        .items-table th, .items-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
+        .header p {
+            margin: 0;
+            font-size: 12px;
+            color: #555;
+        }
+        .details {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .details p {
+            margin: 5px 0;
+        }
+        .details strong {
+            font-weight: bold;
+        }
+        .divider {
+            border-top: 1px dashed #ccc;
+            margin: 15px 0;
         }
         .total {
+            text-align: right;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
             margin-top: 20px;
-            font-size: 1.2em;
+            font-size: 12px;
+            color: #888;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="receipt-container">
         <div class="header">
-            <h2>Struk Pembelian</h2>
-            <p>Terima kasih telah berbelanja di Hanila Brew!</p>
+            <h1>Nestara Coffee</h1>
+            <p>Phone: (+62) 877-8266-5046</p>
         </div>
-        <p><strong>Nama:</strong> {{ $transaction->customer_name }}</p>
-        <p><strong>No. Telepon:</strong> {{ $transaction->customer_phone }}</p>
-        <p><strong>Tanggal:</strong> {{ $transaction->created_at->format('d-m-Y H:i') }}</p>
-
-        <table class="items-table">
-            <thead>
-                <tr>
-                    <th>Nama Produk</th>
-                    <th>Jumlah</th>
-                    <th>Harga</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($transaction->items as $item)
-                    <tr>
-                        <td>{{ $item->product_name }}</td>
-                        <td>{{ $item->quantity }}</td>
-                        <td>Rp{{ number_format($item->price, 0, ',', '.') }}</td>
-                        <td>Rp{{ number_format($item->quantity * $item->price, 0, ',', '.') }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-
-        <p class="total"><strong>Total: Rp{{ number_format($transaction->total_amount, 0, ',', '.') }}</strong></p>
+        <div class="details">
+            <p><strong>Transaction ID:</strong> {{ $transaction->id }}</p>
+            <p><strong>Customer Name:</strong> {{ $transaction->customer_name }}</p>
+            <p><strong>Customer Phone:</strong> {{ $transaction->customer_phone }}</p>
+            <p><strong>Payment Method:</strong> {{ $transaction->payment_method }}</p>
+        </div>
+        <div class="divider"></div>
+        <div class="details">
+            <p><strong>Date:</strong> {{ $transaction->created_at }}</p>
+            <p class="total">Total: Rp. {{ number_format($transaction->total_amount, 2) }}</p>
+        </div>
+        <div class="divider"></div>
+        <div class="footer">
+            <p>Thank you for your purchase!</p>
+            <p>Visit us again soon.</p>
+        </div>
     </div>
 </body>
 </html>

@@ -29,6 +29,8 @@ Route::get('/karir', [KarirController::class, 'index']);
 
 // halaman product
 Route::get('/product', [NewPageController::class, 'index'])->name('newpage.index');
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 
 // Halaman cart
 Route::get('/checkout', [CheckoutController::class, 'showCheckout'])->name('cart');
@@ -41,6 +43,6 @@ Route::get('/hubungii', [HubungiController::class, 'index'])->name('hubungi');
 Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
 
 Route::post('/transactions', [TransactionController::class, 'store']);
-Route::post('/api/transactions', [TransactionController::class, 'store']);
-Route::get('/transactions/{id}/receipt', [TransactionController::class, 'generateReceipt'])->name('transactions.receipt');
+Route::post('/api/transactions', [TransactionController::class, 'store'])->name('transactions.store');
+Route::get('/transactions/{id}/receipt', [TransactionController::class, 'receipt']);
 Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');

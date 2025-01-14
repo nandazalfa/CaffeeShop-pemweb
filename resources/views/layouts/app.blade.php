@@ -188,7 +188,7 @@
                 <a href="{{ url('/tentang') }}">About</a>
                 <a href="{{ url('/product') }}">Menu</a>
                 <a href="{{ url('/kolaborasi') }}">Collaboration</a>          
-                <a href="{{ url('/karir') }}" class="{{ Request::is('karir') ? 'active' : '' }}">Career</a>
+                <a href="{{ url('/karir') }}">Career</a>
                 <a href="{{ url('/hubungi') }}i">Contact Us</a>
                 <div class="language-selector">
                     <span>🇮🇩</span>
