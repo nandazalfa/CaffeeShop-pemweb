@@ -10,7 +10,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #fafafa;
-            padding-top: 80px;
+            padding-top: 150px;
         }
         
         .navbar {
@@ -67,8 +67,8 @@
         .container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 20px;
+            gap: 25px;
+            padding: 25px;
         }
 
         .product {

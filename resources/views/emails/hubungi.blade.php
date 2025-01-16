@@ -146,22 +146,22 @@
   <section class="contact-section">
     <div class="contact-header">
       <h1>Contact Us</h1>
-      <p>Do you have any questions or comments? Just send us a message!</p>
+      <p>Have any questions or comments? Just send us a message!</p>
     </div>
 
     <div class="contact-content">
       <div class="contact-info">
         <h2>Contact Information</h2>
-        <p>If you have any questions or concerns, you can reach out to us by filling out the contact form, calling us, visiting our office, finding us on other social networks, or you can send us a personal email at:</p>
+        <p>If you have any questions or concerns, you can contact us by filling out the contact form, calling us, visiting our office, finding us on other social networks, or you can send us a personal email at:</p>
         
         <ul class="contact-details">
           <li>
             <img src="https://fore.coffee/wp-content/uploads/2023/08/bxs_phone-call.png" alt="Phone icon" />
-            <span>0812-1111-8456</span>
+            <span>0856-2470-8648</span>
           </li>
           <li>
             <img src="https://fore.coffee/wp-content/uploads/2023/08/ic_sharp-email.png" alt="Email icon" />
-            <span>hello@Nestara.coffee</span>
+            <span>nestaracoffe@gmail.com</span>
           </li>
           <li>
             <img src="https://fore.coffee/wp-content/uploads/2023/08/carbon_location-filled.png" alt="Location icon" />

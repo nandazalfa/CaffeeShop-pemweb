@@ -24,7 +24,7 @@
 
                 <section class="hero w-full">
                     <div>
-                        <img src="https://fore.coffee/wp-content/uploads/2023/09/barista2-1.png" alt="Hero Image" class="hero-image w-full h-auto"/>
+                        <img src="https://i.pinimg.com/736x/78/e9/0c/78e90c7223efeefc9b22948f73a0690d.jpg" alt="Hero Image" class="hero-image w-full h-auto"/>
                     </div>
                 </section>
             </div>
@@ -82,7 +82,7 @@
     <section class="py-10 bg-white min-h-screen w-full flex items-center">
         <div class="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto flex flex-col md:flex-row w-full">
             <div class="md:w-1/2 w-full">
-                <img alt="Barista working with a coffee machine" class="w-full h-full object-cover" height="400" src="https://fore.coffee/wp-content/uploads/2023/09/fgm1-1.png" width="600"/>
+                <img alt="Barista working with a coffee machine" class="w-full h-full object-cover" height="400" src="https://i.pinimg.com/736x/49/b2/a1/49b2a102639ce23971b5c08be3f27eb7.jpg" width="600"/>
             </div>
             <div class="md:w-1/2 p-8 w-full">
                 <div class="text-green-700 font-semibold mb-2">

@@ -433,8 +433,6 @@
                 <h1>Nestara Coffee</h1>
                 <p>Di Setiap Cangkir, Ada Cerita yang Menunggu untuk Diceritakan</p>
                 <div class="slider-controls">
-                    <div class="slider-arrow">&#8249;</div>
-                    <div class="slider-arrow">&#8250;</div>
                 </div>
             </div>
             <div class="hero-image">

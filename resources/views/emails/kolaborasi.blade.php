@@ -35,7 +35,7 @@
     .hero-images img {
       width: 33.33%;
       height: 100%;
-      object-fit: cover; /* Ensure the image fills the space */
+      object-fit: cover;
     }
 
     .title {
@@ -229,25 +229,26 @@
       <h2>Become a partner!</h2>
       <p>Let us know how we can help!</p>
       
-      <form>
+      <form action="{{ route('kolaborasi.send') }}" method="POST">
+        @csrf  <!-- CSRF Token -->
         <div class="form-group">
-          <label>Name</label>
-          <input type="text" placeholder="Your name">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
         </div>
         
         <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="Your email">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your email" required>
         </div>
         
         <div class="form-group">
-          <label>Phone Number</label>
-          <input type="tel" placeholder="Your phone number">
+          <label for="phonenumber">Phone Number</label>
+          <input type="tel" id="phonenumber" name="phonenumber" placeholder="Your phone number" required>
         </div>
         
         <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Your message"></textarea>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Your message" required></textarea>
         </div>
 
         <!-- Added Submit Button -->
