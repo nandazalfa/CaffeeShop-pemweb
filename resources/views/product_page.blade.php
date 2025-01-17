@@ -426,7 +426,7 @@
                 <a href="{{ url('/product') }}">Menu</a>
                 <a href="{{ url('/kolaborasi') }}">Collaboration</a>
                 <a href="{{ url('/karir') }}">Career</a>
-                <a href="{{ url('/hubungii') }}">Contact Us</a>
+                <a href="{{ url('/hubungi') }}">Contact Us</a>
                 <div class="language-selector">
                     <span>🇮🇩</span>
                     <span>ID</span>
