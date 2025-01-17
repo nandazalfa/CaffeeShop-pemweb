@@ -85,6 +85,62 @@
             color: white;
         }
 
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: white;
+                padding: 20px;
+                text-align: center;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                display: block;
+                width: 30px;
+                height: 4px;
+                margin: 5px;
+                background-color: black;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        .download-btn {
+            background-color: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
         /* Hero Section */
         .hero {
             margin-top: 80px;
@@ -416,7 +472,7 @@
             <div class="nav-links">
                 <a href="{{ url('/tentang') }}">About</a>
                 <a href="{{ url('/product') }}">Menu</a>
-                <a href="{{ url('/kolaborasi') }}">collaboration</a>
+                <a href="{{ url('/kolaborasi') }}">Collaboration</a>
                 <a href="{{ url('/karir') }}">Career</a>
                 <a href="{{ url('/hubungi') }}">Contact Us</a>
                 <div class="language-selector">
@@ -424,8 +480,20 @@
                     <span>ID</span>
                 </div>
             </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
+
+    <script>
+        // Handle Hamburger Menu Toggle
+        document.getElementById("hamburger").addEventListener("click", function() {
+            document.querySelector(".nav-links").classList.toggle("active");
+        });
+    </script>
 
     <section class="hero">
         <div class="hero-content">
@@ -679,13 +747,150 @@
         </div>
     </div>
 
-  <section class="locations">
-        <div class="section-title">
-            <h2>Our Locations</h2>
-            <p>Temukan gerai kami di berbagai lokasi</p>
-        </div>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126646.51380936121!2d112.71268687362064!3d-7.275619143075757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf8381ac47f%3A0x3027a76e352be40!2sSurabaya%2C%20Surabaya%20City%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1703317234676!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
-        </div>
+    </div>
     </section>
+    <section class="social-feed">
+    <div class="section-title">
+        <h2>Follow Our Instagram</h2>
+        <p>Explore special moments with Nestara Coffee</p>
+    </div>
+    <div class="social-grid">
+        <div class="social-post">
+            <img src="https://i.pinimg.com/736x/3c/4a/13/3c4a134bc8b51f58779fbfd3795af2f5.jpg" alt="Instagram post 1">
+            <div class="social-overlay">
+                <a href="https://www.instagram.com/nestara_coffe/profilecard/?igsh=ajh4ZjczbDA0OGZu" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fab fa-instagram social-icon"></i>
+                </a>
+            </div>
+        </div>
+        <div class="social-post">
+            <img src="https://i.pinimg.com/736x/45/25/76/45257653c09220c62a8aded6fe20ec54.jpg" alt="Instagram post 2">
+            <div class="social-overlay">
+                <a href="https://www.instagram.com/nestara_coffe/profilecard/?igsh=ajh4ZjczbDA0OGZu" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fab fa-instagram social-icon"></i>
+                </a>
+            </div>
+        </div>
+        <div class="social-post">
+            <img src="https://i.pinimg.com/736x/01/d4/b2/01d4b25ca1acdccaa7b96eb92552c6f7.jpg" alt="Instagram post 4">
+            <div class="social-overlay">
+                <a href="https://www.instagram.com/nestara_coffe/profilecard/?igsh=ajh4ZjczbDA0OGZu" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="fab fa-instagram social-icon"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="social-cta">
+        <a href="https://www.instagram.com/nestara_coffe/profilecard/?igsh=ajh4ZjczbDA0OGZu" class="instagram-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i> Follow @Nestara_coffee
+        </a>
+    </div> 
+
+    <style>
+        .social-feed {
+            padding: 6rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .social-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .social-post {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .social-post img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .social-post:hover img {
+            transform: scale(1.1);
+        }
+
+        .social-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,98,65,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .social-post:hover .social-overlay {
+            opacity: 1;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 2.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-post:hover .social-icon {
+            transform: scale(1.2);
+        }
+
+        .social-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .instagram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,98,65,0.2);
+        }
+
+        .instagram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,98,65,0.3);
+        }
+
+        .instagram-btn i {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+    </style>
+    </section>
+    <section class="locations">
+            <div class="section-title">
+                <h2>Our Locations</h2>
+                <p>Find our outlets in various locations</p>
+            </div>
+            <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126487.63788222353!2d107.5793072261943!3d-6.903444882459351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7c927c924a9%3A0x401e8f1fc28c6e0!2sBandung%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1703317234676!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
+
+            </div>
   

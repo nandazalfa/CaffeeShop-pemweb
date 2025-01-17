@@ -7,10 +7,12 @@
     <title>Product Page - Hanila Brew</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Previous styles remain the same until navbar styles */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #fafafa;
             padding-top: 150px;
+            margin: 0;
         }
         
         .navbar {
@@ -30,6 +32,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 2rem;
+            position: relative;
         }
 
         .logo {
@@ -49,11 +52,74 @@
             font-size: 1rem;
         }
 
-        .language-selector {
+        .hamburger-menu {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001;
+        }
+
+        /* Style for the hamburger icon */
+        .hamburger-icon {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-left: 1rem;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+        }
+
+        .hamburger-icon span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #000;
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                padding: 1rem 0;
+                background-color: white;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.open {
+                display: flex;
+                padding: 0.5rem 1rem;
+                margin-left: 0;
+            }
+
+            .nav-links a {
+                padding: 0.5rem 2rem;
+                width: 100%;
+                text-align: left;
+                margin-left: 0;
+            }
+
+            .cart-icon {
+                padding: 0.5rem 2rem !important;
+            }
         }
 
         .category-title {
@@ -421,16 +487,19 @@
     <nav class="navbar">
         <div class="nav-content">
             <img src="https://i.pinimg.com/736x/a1/23/8f/a1238f01e1eba65044714a350d8c2567.jpg" alt="Logo" class="logo">
+            <button class="hamburger-menu" onclick="toggleMenu()">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
             <div class="nav-links">
                 <a href="{{ url('/tentang') }}">About</a>
                 <a href="{{ url('/product') }}">Menu</a>
                 <a href="{{ url('/kolaborasi') }}">Collaboration</a>
                 <a href="{{ url('/karir') }}">Career</a>
                 <a href="{{ url('/hubungi') }}">Contact Us</a>
-                <div class="language-selector">
-                    <span>🇮🇩</span>
-                    <span>ID</span>
-                </div>
                 <a href="{{ route('cart') }}" class="cart-icon">
                     <i class="fas fa-shopping-cart"></i>
                     <span id="cart-count" class="cart-count">0</span>
@@ -502,6 +571,11 @@
     </div>
 
     <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('open');
+        }
+        
         let currentProduct = null;
         let currentQuantity = 1;
 
@@ -557,7 +631,6 @@
                 toggleCart(); // Membuka panel keranjang
             }
         }
-
 
 
         function toggleCart() {

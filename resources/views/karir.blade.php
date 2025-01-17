@@ -161,7 +161,7 @@
                 </table>
             </div>
         </div>
-            <p class="text-xl font-semibold text-green-800">Send your CV to <a href="mailto:career@example.com" class="text-green-600">career@example.com</a></p>
+            <p class="text-xl font-semibold text-green-800">Send your CV to <a href="mailto:nestaracoffe@gmail.com" class="text-green-600">nestaracoffe@gmail.com</a></p>
         </div>
     </section>
 

@@ -157,7 +157,7 @@
         <ul class="contact-details">
           <li>
             <img src="https://fore.coffee/wp-content/uploads/2023/08/bxs_phone-call.png" alt="Phone icon" />
-            <span>0856-2470-8648</span>
+            <span>0877-8266-5046</span>
           </li>
           <li>
             <img src="https://fore.coffee/wp-content/uploads/2023/08/ic_sharp-email.png" alt="Email icon" />
@@ -166,9 +166,9 @@
           <li>
             <img src="https://fore.coffee/wp-content/uploads/2023/08/carbon_location-filled.png" alt="Location icon" />
             <div>
-              <div>Gedung Graha Ganesha, Lantai 1 Suite 120 & 130</div>
-              <div>Jl. Hayam Wuruk No. 28, RT 014/RW 001, Kelurahan Kebon Klapa,</div>
-              <div>Kecamatan Gambir, Jakarta Pusat, DKI Jakarta</div>
+            <div>Gedung Graha Ganesha, Lantai 1 Suite 120 & 130</div>
+            <div>Jl. Hayam Wuruk No. 28, RT 014/RW 001, Kelurahan Kebon Kalapa,</div>
+            <div>Kecamatan Dago, Bandung, Jawa Barat</div>
             </div>
           </li>
         </ul>

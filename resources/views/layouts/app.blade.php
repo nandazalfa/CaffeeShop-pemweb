@@ -183,8 +183,16 @@
 <body>
     <nav class="navbar">
         <div class="nav-content">
+            <!-- Logo -->
             <img src="https://i.pinimg.com/736x/a1/23/8f/a1238f01e1eba65044714a350d8c2567.jpg" alt="Logo" class="logo">
-            <div class="nav-links">
+            
+            <!-- Menu Toggle for Mobile -->
+            <div class="menu-toggle lg:hidden cursor-pointer">
+                <i class="fas fa-bars text-2xl"></i>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="nav-links hidden lg:flex">
                 <a href="{{ url('/tentang') }}">About</a>
                 <a href="{{ url('/product') }}">Menu</a>
                 <a href="{{ url('/kolaborasi') }}">Collaboration</a>          
@@ -197,10 +205,27 @@
                 </div>
             </div>
         </div>
+        <!-- Mobile Menu (Initially Hidden) -->
+        <div class="mobile-menu hidden bg-white lg:hidden">
+            <a href="{{ url('/tentang') }}" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">About</a>
+            <a href="{{ url('/product') }}" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Menu</a>
+            <a href="{{ url('/kolaborasi') }}" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Collaboration</a>
+            <a href="{{ url('/karir') }}" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Career</a>
+            <a href="{{ url('/hubungi') }}" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Contact Us</a>
+        </div>
     </nav>
 
     <div class="container">
         @yield('content')
     </div>
+
+    <script>
+        // Menu Toggle Script
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
+
 </html>

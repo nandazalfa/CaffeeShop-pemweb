@@ -74,31 +74,58 @@
             background-color: #008c44;
         }
 
+        .logo {
+            height: 100px;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                height: 40px; /* Sesuaikan ukuran logo */
+            }
+        }
+
         
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-content">
-            <img src="https://i.pinimg.com/736x/a1/23/8f/a1238f01e1eba65044714a350d8c2567.jpg" alt="Logo" class="logo">
-            <div class="nav-links">
-                <a href="{{ url('/tentang') }}">About</a>
-                <a href="{{ url('/product') }}">Menu</a>
-                <a href="{{ url('/kolaborasi') }}">Collaboration</a>
-                <a href="{{ url('/karir') }}">Career</a>
-                <a href="{{ url('/hubungi') }}">Contact Us</a>
-                <div class="language-selector">
-                    <span>🇮🇩</span>
-                    <span>ID</span>
-                </div>
-                <a href="{{ route('cart') }}" class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span id="cart-count" class="cart-count">0</span>
-                </a>
+    <nav class="navbar navbar-expand-lg">
+        <div class="nav-content container">
+            <!-- Logo -->
+            <a href="/" class="navbar-brand">
+                <img src="https://i.pinimg.com/736x/a1/23/8f/a1238f01e1eba65044714a350d8c2567.jpg" alt="Logo" class="logo">
+            </a>
+            
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center" style="gap: 2.0rem;">
+                    <li class="nav-item"><a href="{{ url('/tentang') }}" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="{{ url('/product') }}" class="nav-link">Menu</a></li>
+                    <li class="nav-item"><a href="{{ url('/kolaborasi') }}" class="nav-link">Collaboration</a></li>
+                    <li class="nav-item"><a href="{{ url('/karir') }}" class="nav-link">Career</a></li>
+                    <li class="nav-item"><a href="{{ url('/hubungi') }}" class="nav-link">Contact Us</a></li>
+                    <li class="nav-item d-flex align-items-center">
+                        <div class="language-selector">
+                            <span>🇮🇩</span>
+                            <span>ID</span>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('cart') }}" class="nav-link cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count" class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
+
 
     <!-- Cart Page -->
     <div class="container cart-container">
